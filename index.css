@@ -37,6 +37,10 @@
     float: left;
 }
 
+.srch {
+    border-radius: 10px;
+}
+
 .row::after {
     content: "";
     clear: both;
@@ -52,18 +56,6 @@
 
 
 
-
-* {
-    margin:0px;
-    padding:0px;
-}
-
-#header {
-    margin:auto;
-    width:500px;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
 ul, ol {
     list-style:none;
 }
@@ -72,8 +64,16 @@ ul, ol {
     float:left;
 }
 
+.dv div {
+    background-color: tomato;
+}
+
+.dv {
+    background-color: tomato;
+}
+
 .nav li a {
-    background-color:#000;
+    background-color: tomato;
     color:#fff;
     text-decoration:none;
     padding:10px 12px;
@@ -82,6 +82,10 @@ ul, ol {
 
 .nav li a:hover {
     background-color:#434343;
+}
+
+.hgr div:hover {
+    background-color: #434343;
 }
 
 .nav li ul {
@@ -106,9 +110,28 @@ ul, ol {
 
 
 
+#foto {
+    background-image: url("https://picsum.photos/500/200");
+    height: 4em;
+    align-items: flex-end;
+}
 
+.pmrg {
+    margin-left: 1em;
+    margin-top: 1em;
+}
 
+.product {
+    background-image: url("https://picsum.photos/500/200");
+    height: 10em;
+    align-items: flex-end;
+}
+
+.bbox div{
+    height: 4em;
+}
 
 .bord div{
     border: solid black 1px;
 }
+
