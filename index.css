@@ -37,6 +37,12 @@
     float: left;
 }
 
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .srch {
     border-radius: 10px;
 }
@@ -51,6 +57,7 @@ body {
     background: lightgray;
 }
 
+/*window margin*/
 #so {
     margin: 0%;
 }
@@ -61,15 +68,133 @@ body {
 
 
 
- 
-.header {
-    width: 100%;
+
+
+
+
+
+
+
+
+
+/*logo and search*/
+
+#foto {
+    background-image: url("https://picsum.photos/300/100"); 
+    height: 4.6em;
+    align-items: flex-end;
+    position: relative;
 }
- 
+
+.flexsearch--wrapper {
+	height: auto;
+	width: auto;
+	max-width: 100%;
+	position: static;
+}
+	
+.flexsearch--form {
+	position: relative;
+}
+	
+.flexsearch--input-wrapper {
+	padding-right: 4em;
+}
+
+.flexsearch--input {
+  width: 100%;
+}
+
+.flexsearch--input {
+	box-sizing: content-box;
+ 	height: 60px;
+    padding: 0 46px 0 10px;
+	border-color: #888;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 5px;
+    color: #333;
+    font-family: 'Helvetica', sans-serif;
+	font-size: 26px;
+}
+	
+.flexsearch--submit {
+    position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 60px;
+	height: 60px;
+    padding: 0;
+    border: none;
+	margin-top: 5px;
+    margin-right: 5px;
+	background: transparent;
+    color: #888;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.flexsearch--input:focus {
+    border-color: #333;
+}
+
+.flexsearch--input:focus.flexsearch--submit {
+ 	color: #333; 
+}
+
+.flexsearch--submit:hover {
+    color: #333;
+}
+
+::-webkit-input-placeholder {
+	color: #888;  
+}
+
+input:-moz-placeholder {
+  color: #888
+}
+
+
+.h1 {
+  float: left;
+  margin: 25px;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 45px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*Menu*/
 .header nav {
 	background:#023859;
 	z-index:1000;
-    width:100%;
+    width:auto;
     margin: 0%;
     /*margin:20px auto;*/
     margin: 0%;
@@ -107,8 +232,8 @@ body {
 	display: none;
 	background:#011826;
 	position: absolute;
-	width: 150%;
-	z-index:1000;
+    width: 150%;
+    z-index: 1000;
 }
  
 .header nav ul li .children li {
@@ -173,16 +298,26 @@ body {
 
 
 
-#foto {
-    background-image: url("https://picsum.photos/500/200");
-    height: 4em;
-    align-items: flex-end;
-}
 
+/*Product*/
 .product {
     background-image: url("https://picsum.photos/300/600");
     height: 20em;
     align-items: flex-end;
+}
+
+#carshop {
+    background-image: url("https://picsum.photos/300/600");
+    height: 4em;
+    align-items: flex-end;
+
+    /*
+    background-image: url("https://picsum.photos/300/100"); 
+    height: 4.6em;
+    align-items: flex-end;
+    position: relative;
+    */
+
 }
 
 .btwprod {
@@ -197,14 +332,42 @@ body {
     height: 4em;
 }
 
-.textprod {
+
+
+
+/*Product button*/
+.btprod {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+
     text-align: center;
-    color: blueviolet;
+    padding-top: 15px;
+    width: 100%;
+    position: relative;
+
+    background-color: #f2595e;
+    border-color: #F69DA1;
+    border-width: 3px;
+    border-style: solid;
 }
 
+.btprod:hover {
+    background-color:#000000;
+}
+
+.flxdiv {
+    display: flex;
+}
+
+
+
+
+/*contact div*/
 #contact{
     background-color: lightseagreen;
-    margin: 0%;
+
 }
 
 .bord div{
