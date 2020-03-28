@@ -1,0 +1,21 @@
+/*Buttons*/
+
+.intext {
+    border: 1px solid lightslategray;
+    border-radius: 30px;
+    background-color: #181a1b;;
+    text-align: center;
+}
+
+.button {
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    border-width: 3px;
+    border-style: solid;
+}
+
+/*Div flex*/
+.flxdiv {
+    display: flex;
+}
