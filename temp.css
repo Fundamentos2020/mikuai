@@ -1,0 +1,13 @@
+/*Buttons*/
+
+.button {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 15px;
+    width: 100%;
+    position: relative;
+    border-width: 3px;
+    border-style: solid;
+}

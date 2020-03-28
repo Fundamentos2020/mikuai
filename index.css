@@ -1,8 +1,6 @@
 * {
     box-sizing: border-box;
 }
-
-
 @media(min-width : 0px){
     .col-s-1{width: 8.33%;}
     .col-s-2{width: 16.66%;}
@@ -16,8 +14,78 @@
     .col-s-10{width: 83.33%;}
     .col-s-11{width: 91.66%}
     .col-s-12{width: 100%;}
-}
 
+    /*Informacion Mockup*/
+    .infoStyle{
+        font-size: 2em;
+        font-weight: bold;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    .fotoEquipoMikuai {
+        background-image: url("https://picsum.photos/300/600");
+        height: 8em;
+        width: 16em;
+        margin: 1em 0em 1em 15%;
+    }
+    .infoText{
+        font-size: 1em;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: justify;
+        padding: 1em 1em 1em 1em;
+        color: black;
+        text-shadow: #333;
+    }
+    .fotoUASLP {
+        background-image: url("https://picsum.photos/300/600");
+        height: 8em;
+        width: 8em;
+        margin: 2em 0em 2em 15%;
+    }
+    .fotoIngenieria {
+        background-image: url("https://picsum.photos/300/600");
+        height: 8em;
+        width: 8em;
+        margin: 2em 0em 2em 15%;
+    }
+    /*Fin de Informacion Mockup*/
+    /*Inicio cuenta sign in*/
+    .cuentaSignUp{
+        text-align: center;
+        font-size: 2em;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+    .flexsearch--submitlg {
+        margin: 0% 0% 0% 25%;
+        border-color: #888;
+        border-radius: 15px;
+        border-style: solid;
+        border-width: 5px;
+        color: #333;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 1.5em;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.2em 1em 0.2em 1em;
+        position: relative;
+    }
+    .flexsearch--inputlg {
+        margin: 0em 0em 0em 0em;
+        width: 100%;
+        height: 2.5em;
+        border-color: #888;
+        border-radius: 15px;
+        border-style: solid;
+        border-width: 5px;
+        color: #333;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    /*Fin cuenta sign in*/
+}
 @media(min-width : 768px){
     .col-m-1{width: 8.33%;}
     .col-m-2{width: 16.66%;}
@@ -31,54 +99,101 @@
     .col-m-10{width: 83.33%;}
     .col-m-11{width: 91.66%}
     .col-m-12{width: 100%;}
-}
 
+    /*Informacion*/
+    .infoStyle{
+        font-size: 5em;
+        font-weight: bold;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    .fotoEquipoMikuai {
+        background-image: url("https://picsum.photos/300/600");
+        height: 20em;
+        width: 85%;
+        margin: 2em 0em 2em 8%;
+    }
+    .infoText{
+        font-size: 1.2em;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: justify;
+        padding: 1em 7em 1em 7em;
+        color: black;
+        text-shadow: #333;
+    }
+    .fotoUASLP {
+        background-image: url("https://picsum.photos/300/600");
+        height: 20em;
+        width: 50%;
+        margin: 2em 0em 2em 25%;
+    }
+    .fotoIngenieria {
+        background-image: url("https://picsum.photos/300/600");
+        height: 20em;
+        width: 50%;
+        margin: 2em 0em 2em 25%;
+    }
+    /*Fin de Informacion Mockup*/
+    /*Inicio cuenta sign in*/
+    .cuentaSignUp{
+        text-align: center;
+        font-size: 5em;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+    .flexsearch--submitlg {
+        margin: 0% 0% 0% 35%;
+        border-color: #888;
+        border-radius: 15px;
+        border-style: solid;
+        border-width: 5px;
+        color: #333;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 26px;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.2em 1em 0.2em 1em;
+        position: relative;
+    }
+    .flexsearch--inputlg {
+        margin: 0em 0em 0em 0em;
+        width: 100%;
+        height: 2.5em;
+        border-color: #888;
+        border-radius: 15px;
+        border-style: solid;
+        border-width: 5px;
+        color: #333;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    /*Fin cuenta sign in*/
+}
 [class *= "col-"] {
     float: left;
 }
-
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
 .srch {
     border-radius: 10px;
 }
-
 .row::after {
     content: "";
     clear: both;
     display: table;
 }
-
 body {
-    background: lightgray;
+    background: rgb(252, 243, 243);
 }
+
+
+
 
 /*window margin*/
 #so {
     margin: 0%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*logo and search*/
-
 #foto {
     background-image: url("https://picsum.photos/300/100"); 
     height: 4.6em;
@@ -135,28 +250,21 @@ body {
     font-size: 40px;
     line-height: 60px;
 }
-
 .flexsearch--input:focus {
     border-color: #333;
 }
-
 .flexsearch--input:focus .flexsearch--submit {
  	color: #333; 
 }
-
 .flexsearch--submit:hover {
     color: #333;
 }
-
 ::-webkit-input-placeholder {
 	color: #888;  
 }
-
 input:-moz-placeholder {
   color: #888
 }
-
-
 .h1 {
   float: left;
   margin: 25px;
@@ -167,26 +275,6 @@ input:-moz-placeholder {
   line-height: 45px;
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -263,46 +351,10 @@ input:-moz-placeholder {
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Product*/
 .product {
     background-image: url("https://picsum.photos/300/600");
-    height: 20em;
+    height: 13em;
     align-items: flex-end;
 }
 
@@ -366,15 +418,18 @@ input:-moz-placeholder {
 
 /*contact div*/
 #contact{
-    background-color: lightseagreen;
-
+    background-color: rgb(2, 173, 11);
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 .bord div{
     border: solid black 1px;
 }
-
-
+.bordeProvicional div{
+    border: solid rgba(0, 0, 0, 0) 1px;
+}
 
 
 /*Cuenta*/
@@ -383,40 +438,10 @@ input:-moz-placeholder {
     text-decoration: none;
     text-align: center;
 }
-
-.flexsearch--submitlg {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    margin-left: 37%;
-    height: 2em;
-    padding: 0 10% 0 10%;
-	border-color: #888;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 5px;
-    color: #333;
-    font-family: 'Helvetica', sans-serif;
-    font-size: 26px;
-    
-    
-
-    text-decoration: none;
-    font-weight: 600;
+.pCuentaSignUp{
     text-align: center;
-    padding-top: 15px;
-    position: relative;
-}
-
-.flexsearch--inputlg {
-    margin-top: 1em;
-    width: 100%;
-    height: 2em;
-    padding: 0 5em 0 5em;
-	border-color: #888;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 5px;
-    color: #333;
-    font-family: 'Helvetica', sans-serif;
-	font-size: 26px;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0em 0em 0.5em 0em;
+    color: rgba(0, 0, 0, 0.651);
 }
