@@ -1,6 +1,5 @@
 /*Buttons*/
 
-<<<<<<< HEAD
 .intext {
     border: 1px solid lightslategray;
     border-radius: 30px;
@@ -20,16 +19,3 @@
 .flxdiv {
     display: flex;
 }
-=======
-.button {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center;
-    padding-top: 15px;
-    width: 100%;
-    position: relative;
-    border-width: 3px;
-    border-style: solid;
-}
->>>>>>> 85924049e9c293ade1e2aae42e59301e219e8d38
