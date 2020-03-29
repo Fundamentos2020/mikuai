@@ -1,9 +1,9 @@
 /*Buttons*/
 
 .intext {
-    border: 1px solid lightslategray;
-    border-radius: 30px;
-    background-color: #181a1b;;
+    border: 1px solid rgb(30, 226, 4);
+    border-radius: 10px;
+    background-color: #e5ebee;;
     text-align: center;
 }
 
