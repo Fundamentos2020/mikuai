@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="temp.css">
-    <link rel="stylesheet" href="SignIn.css">
+    <link rel="stylesheet" href="Producto.css">
     <link rel="icon" href="/img/logor.png" />
-    <title>MiKuai | Registrarse</title>
+    <title>MiKuai | Producto</title>
 </head>
+
 <body>
     <script src="temp.js"></script>
 
@@ -71,37 +73,45 @@
     <div id="Cshop">
     </div>
 
-    <!-- Registrarse -->
-    <div class="cont">
+    <!-- About -->
+    <div style="padding: 5em 0 10em 0;" class="contn">
 
-        <div class="log">
-            <div class="title"> Completa tus datos</div>
+        <div class="about w-s-50 w-m-50">
 
-            <div class="usr usr-s"> 
-                <input class="usrtxt w-m-40 w-s-90 m-r" placeholder="Nombre" type="text"> 
-                <input class="usrtxt  w-m-40 w-s-90" placeholder="Apellido" type="text">
-            </div>
+            <div class="atxt">Nombre del Porducto</div>
 
-            <div class="usr usr-s"> 
-                <input class="usrtxt  w-m-40 w-s-90 m-r" placeholder="Correo" type="text"> 
-                
-                <div class="pswrtxt  w-m-40 w-s-90" >
+            <div style="margin-bottom: 2em;" class="contn contn-s">
+                <img class="foto w-s-45 w-m-45 m-r" src="https://picsum.photos/500/300" alt="">
 
-                    <input placeholder="Contraseña" type="text">
-                    <button class="itrg">?</button>
-                
+                <!-- Info -->
+                <div class="infp w-m-txt w-s-txt">
+
+                    <div style="font-weight: bold; font-size: 2em; margin-top: 2em; ">$000,00</div>
+
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quis eum numquam consectetur vel
+                        neque quia, minus ab error maxime sit veniam, modi voluptatum natus dolores molestiae, illum
+                        suscipit voluptatem.
+                    </div>
+
+                    <div style="margin-top: 3em;" class="row">
+                        <div class="col-m-5 col-s-5 btnbox" >
+                            <a onclick="compras(evemt,'solo')" class="btn btncomprar" href="">Comprar</a>
+                        </div>
+                        <div class="col-m-7 col-s-7 btnbox" >
+                            <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
+                        </div>
+        
+                    </div>
+
                 </div>
 
             </div>
-            
-            <div class="usr usr-s btnemail" > <button class="btn" href="">Crear Cuenta</button> </div>
 
         </div>
 
-
     </div>
 
-    
     <!-- Pie de pagina -->
     <div class="row pie">
 
@@ -110,7 +120,7 @@
         </div>
 
         <div style="display: flex;" class="col-m-2 col-s-12">
-            
+
             <a onclick="volvArriba(event)" class="vlvarriba" href="">
                 Volver arriba
             </a>
@@ -126,22 +136,26 @@
             <div class="row">
 
                 <div class="col-m-4 col-s-4 bxscl redes">
-                    <a style="width: 25%;" href="https://www.facebook.com" target="_blank"> <img class="scl" src="Redes/Facebook.png" alt=""> </a>
+                    <a style="width: 25%;" href="https://www.facebook.com" target="_blank"> <img class="scl"
+                            src="Redes/Facebook.png" alt=""> </a>
                 </div>
 
                 <div class="col-m-4 col-s-4 bxscl redes">
-                    <a style="width: 25%;" href="https://www.instagram.com " target="_blank"> <img class="scl" src="Redes/Instagram.png" alt=""> </a>
+                    <a style="width: 25%;" href="https://www.instagram.com " target="_blank"> <img class="scl"
+                            src="Redes/Instagram.png" alt=""> </a>
                 </div>
 
                 <div class="col-m-4 col-s-4 bxscl redes">
-                    <a style="width: 25%;" href="https://www.twitter.com" target="_blank"> <img class="scl" src="Redes/Twitter.png" alt=""> </a>
+                    <a style="width: 25%;" href="https://www.twitter.com" target="_blank"> <img class="scl"
+                            src="Redes/Twitter.png" alt=""> </a>
                 </div>
-                
+
             </div>
 
         </div>
-        
+
     </div>
 
 </body>
+
 </html>

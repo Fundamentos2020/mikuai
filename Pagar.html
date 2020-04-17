@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="temp.css">
-    <link rel="stylesheet" href="SignIn.css">
+    <link rel="stylesheet" href="Pagar.css">
     <link rel="icon" href="/img/logor.png" />
-    <title>MiKuai | Registrarse</title>
+    <title>MiKuai | Información</title>
 </head>
-<body>
+
+<body onload="compras()">
     <script src="temp.js"></script>
 
     <!-- Title and search, menu -->
@@ -71,37 +73,53 @@
     <div id="Cshop">
     </div>
 
-    <!-- Registrarse -->
-    <div class="cont">
 
-        <div class="log">
-            <div class="title"> Completa tus datos</div>
+    <!-- About -->
+    <div style="padding: 5em 0 10em 0;" class="contn">
 
-            <div class="usr usr-s"> 
-                <input class="usrtxt w-m-40 w-s-90 m-r" placeholder="Nombre" type="text"> 
-                <input class="usrtxt  w-m-40 w-s-90" placeholder="Apellido" type="text">
-            </div>
+        <div class="pgn w-s-pgn w-m-pgn">
 
-            <div class="usr usr-s"> 
-                <input class="usrtxt  w-m-40 w-s-90 m-r" placeholder="Correo" type="text"> 
-                
-                <div class="pswrtxt  w-m-40 w-s-90" >
+            <div style="font-size: 3em;" class="atxt">Pagar</div>
 
-                    <input placeholder="Contraseña" type="text">
-                    <button class="itrg">?</button>
-                
+            <div class="row">
+
+                <div class="col-m-7">
+                    
+                    <div style="font-size: 1.5em;" class="atxt">Tus Datos</div>
+
+                    <div style="margin: 1.5em 0.5em 1em 2em;" class="ntxt">qwerty@example.com</div>
+
+                    <div style="margin: 1.5em 0.5em 3em 2em;" class="ntxt">Nombre</div>
+
+
+                    <div style="font-size: 1.5em;" class="atxt">Productos</div>
+
+
+                    <div id="comprass">
+
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="col-m-5">
+
+                    <div style="font-size: 1.5em;" class="atxt">Resumen de la compra</div>
+
+                    <div style="margin: 1.5em 0.5em 1em 2em;" class="ntxt">Descripcion *********</div>
+
+                    <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold;" class="ntxt">Total a pagar........$000,00</div>
+                    
+                </div>
+                
             
-            <div class="usr usr-s btnemail" > <button class="btn" href="">Crear Cuenta</button> </div>
+            </div>
+
+            
 
         </div>
 
-
     </div>
 
-    
     <!-- Pie de pagina -->
     <div class="row pie">
 
@@ -110,7 +128,7 @@
         </div>
 
         <div style="display: flex;" class="col-m-2 col-s-12">
-            
+
             <a onclick="volvArriba(event)" class="vlvarriba" href="">
                 Volver arriba
             </a>
@@ -126,22 +144,26 @@
             <div class="row">
 
                 <div class="col-m-4 col-s-4 bxscl redes">
-                    <a style="width: 25%;" href="https://www.facebook.com" target="_blank"> <img class="scl" src="Redes/Facebook.png" alt=""> </a>
+                    <a style="width: 25%;" href="https://www.facebook.com" target="_blank"> <img class="scl"
+                            src="Redes/Facebook.png" alt=""> </a>
                 </div>
 
                 <div class="col-m-4 col-s-4 bxscl redes">
-                    <a style="width: 25%;" href="https://www.instagram.com " target="_blank"> <img class="scl" src="Redes/Instagram.png" alt=""> </a>
+                    <a style="width: 25%;" href="https://www.instagram.com " target="_blank"> <img class="scl"
+                            src="Redes/Instagram.png" alt=""> </a>
                 </div>
 
                 <div class="col-m-4 col-s-4 bxscl redes">
-                    <a style="width: 25%;" href="https://www.twitter.com" target="_blank"> <img class="scl" src="Redes/Twitter.png" alt=""> </a>
+                    <a style="width: 25%;" href="https://www.twitter.com" target="_blank"> <img class="scl"
+                            src="Redes/Twitter.png" alt=""> </a>
                 </div>
-                
+
             </div>
 
         </div>
-        
+
     </div>
 
 </body>
+
 </html>
