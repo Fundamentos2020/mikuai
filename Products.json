@@ -1,0 +1,162 @@
+[
+  {
+    "id": "5eacef1290ddc897791b2232",
+    "type": "regular",
+    "nombre": "Juguete",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 485,
+    "precio_envio": 763,
+    "descripcion": "Nostrud ut enim Lorem mollit cupidatat sit id pariatur dolor. Pariatur do anim dolor ad est laboris aliquip cupidatat do sunt. Culpa minim eiusmod deserunt occaecat amet non tempor Lorem sunt nisi Lorem cupidatat deserunt velit. Dolore adipisicing eiusmod cupidatat nisi minim. Reprehenderit minim laboris sit occaecat aute sunt sunt duis Lorem aliqua minim ex et laboris. Non eu et sint ullamco minim pariatur sit culpa mollit eiusmod irure nisi veniam qui.\r\n",
+    "categoria": "Ropa"
+  },
+  {
+    "id": "5eacef129e2154b5c9f37a9d",
+    "type": "regular",
+    "nombre": "Libro",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 606,
+    "precio_envio": 456,
+    "descripcion": "Cillum adipisicing irure incididunt elit occaecat pariatur velit laboris est qui. Aute sint voluptate in culpa ipsum ea est duis sunt eiusmod in. Consequat consectetur consectetur aliquip excepteur consequat dolore fugiat irure id irure id. Quis mollit voluptate eu sit. Exercitation sunt proident adipisicing ex amet reprehenderit adipisicing aute sit. Proident magna officia commodo consequat veniam excepteur veniam sint non ad. Duis culpa veniam occaecat occaecat dolor quis id esse elit.\r\n",
+    "categoria": "Hogar"
+  },
+  {
+    "id": "5eacef12b921214b9c80e53c",
+    "type": "regular",
+    "nombre": "Pantalon",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 539,
+    "precio_envio": 902,
+    "descripcion": "Ullamco sint velit ullamco nisi ipsum sint ullamco. Esse ex ad eu labore quis laboris duis laborum eiusmod. Non id nisi enim proident aute nisi labore consequat adipisicing mollit minim. Proident excepteur quis occaecat ex culpa quis deserunt magna.\r\n",
+    "categoria": "Libros"
+  },
+  {
+    "id": "5eacef1213463e9f566f5875",
+    "type": "regular",
+    "nombre": "silla",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 417,
+    "precio_envio": 782,
+    "descripcion": "In officia minim ex cillum duis minim amet. Culpa irure dolore Lorem amet. Non enim nulla mollit non sit magna id fugiat commodo magna ex Lorem eiusmod. Ex eiusmod non excepteur voluptate ut ullamco magna Lorem consectetur.\r\n",
+    "categoria": "Herramientas"
+  },
+  {
+    "id": "5eacef123690ab76af8217b1",
+    "type": "regular",
+    "nombre": "diamante",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 769,
+    "precio_envio": 924,
+    "descripcion": "Sint Lorem Lorem non laboris laboris dolore nisi enim est culpa cupidatat aliquip adipisicing adipisicing. Labore elit aliquip laborum tempor ad sint. Excepteur enim sint adipisicing enim aliqua in. Deserunt nulla id incididunt eu. Duis dolor sint ut esse aliqua do minim sit irure labore id ipsum. Tempor tempor amet deserunt nisi cillum ipsum anim dolor ad labore sit Lorem sint magna.\r\n",
+    "categoria": "Libros"
+  },
+  {
+    "id": "5eacef121d219d37cb5e07a9",
+    "type": "regular",
+    "nombre": "Pantalon",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 725,
+    "precio_envio": 884,
+    "descripcion": "Ut cillum culpa in ad consequat sint est est irure. Duis aliquip mollit esse eu dolore pariatur. Voluptate aliqua aliquip velit laboris ut incididunt eiusmod veniam fugiat fugiat duis voluptate incididunt. Occaecat aute laborum cupidatat pariatur consectetur sit anim sit ipsum in.\r\n",
+    "categoria": "Automoviles"
+  },
+  {
+    "id": "5eacef123e676d4c1d6e7d99",
+    "type": "regular",
+    "nombre": "Pantalon",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 933,
+    "precio_envio": 818,
+    "descripcion": "Non culpa ullamco aliqua ex commodo quis eiusmod ea exercitation. Anim laboris et dolor sint tempor. Amet sint Lorem aliqua enim officia commodo duis sunt dolor do dolor exercitation. Occaecat et nostrud elit ea eu veniam ullamco qui cillum fugiat. Pariatur et nisi reprehenderit ex aute labore elit enim.\r\n",
+    "categoria": "Herramientas"
+  },
+  {
+    "id": "5eacef126a6d5664cf40cff2",
+    "type": "regular",
+    "nombre": "Carro",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 351,
+    "precio_envio": 951,
+    "descripcion": "Lorem aliqua proident laboris ullamco labore laboris dolor velit. Ipsum anim tempor excepteur culpa non occaecat laborum. Occaecat ipsum proident cillum labore laborum. Amet incididunt officia ipsum labore fugiat. Ad nulla sint sunt adipisicing cupidatat cupidatat. Dolore commodo duis aliquip ex pariatur est quis eiusmod non cillum ipsum ut sunt anim. Occaecat nulla id eu laboris nulla aliqua nisi duis anim commodo.\r\n",
+    "categoria": "Herramientas"
+  },
+  {
+    "id": "5eacef12910dbad53a607c3c",
+    "type": "regular",
+    "nombre": "Pantalon",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 700,
+    "precio_envio": 958,
+    "descripcion": "Proident dolore ut amet irure labore pariatur. Excepteur veniam incididunt proident eu tempor aliqua aliqua in. Sint laborum consectetur officia consequat veniam mollit commodo duis ut qui et veniam.\r\n",
+    "categoria": "Ropa"
+  },
+  {
+    "id": "5eacef128fa6d784f851c320",
+    "type": "regular",
+    "nombre": "Libro",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 444,
+    "precio_envio": 948,
+    "descripcion": "Laboris proident esse mollit dolor culpa commodo cupidatat id pariatur non deserunt laborum sunt nulla. Velit enim ipsum magna velit. Excepteur sit exercitation occaecat occaecat. Velit consequat aute sint adipisicing consequat id mollit reprehenderit fugiat quis et in aliquip exercitation. Sit ullamco ea culpa reprehenderit consequat exercitation magna quis. Ipsum consectetur mollit in cillum culpa aliqua esse labore proident commodo.\r\n",
+    "categoria": "Videojuegos"
+  },
+  {
+    "id": "5eacef12ec5a9789010524b1",
+    "type": "regular",
+    "nombre": "Zapatos",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 810,
+    "precio_envio": 930,
+    "descripcion": "Sint minim ipsum in minim. Do eu ipsum pariatur consectetur commodo. Sit aliqua et commodo dolore commodo et commodo culpa officia aliqua. Ea sunt dolor id dolore commodo consequat ipsum duis minim enim eu ut sunt. Commodo nostrud nostrud do incididunt aliquip veniam qui labore aliquip irure aute culpa consectetur sint.\r\n",
+    "categoria": "Inmuebles"
+  },
+  {
+    "id": "5eacef12840be4c809749313",
+    "type": "regular",
+    "nombre": "Carro",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 309,
+    "precio_envio": 337,
+    "descripcion": "Nulla magna cillum quis et. Laborum consectetur laboris et Lorem. Irure excepteur et ullamco velit nostrud aute. Consectetur eiusmod dolore enim mollit dolor.\r\n",
+    "categoria": "Software"
+  },
+  {
+    "id": "5eacef127d0266ee8826cda2",
+    "type": "regular",
+    "nombre": "Zapatos",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 284,
+    "precio_envio": 324,
+    "descripcion": "Ad ipsum enim est anim reprehenderit ipsum occaecat dolor voluptate sunt laboris reprehenderit enim. Est exercitation nulla anim eiusmod enim magna aute pariatur occaecat est duis eiusmod et voluptate. Eu magna nostrud non nulla reprehenderit sit minim deserunt Lorem. Deserunt commodo ex do veniam deserunt velit consequat sit id quis tempor anim culpa nulla. Occaecat et exercitation cupidatat tempor irure adipisicing velit voluptate amet ullamco enim mollit. Veniam cupidatat qui est cupidatat duis.\r\n",
+    "categoria": "Juguetes"
+  },
+  {
+    "id": "5eacef1247dfffd26fa6ade8",
+    "type": "regular",
+    "nombre": "silla",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 950,
+    "precio_envio": 299,
+    "descripcion": "Consectetur est non cillum duis tempor fugiat esse consectetur. In aliquip magna id tempor consectetur duis ipsum quis ullamco officia ea. Proident ea laborum quis sunt anim exercitation. Duis eiusmod cupidatat consectetur ut nulla pariatur aliquip. Dolor qui non cillum ut pariatur in voluptate. Minim culpa in eiusmod in ea dolor culpa duis culpa.\r\n",
+    "categoria": "Herramientas"
+  },
+  {
+    "id": "5eacef1228183a0d2bdf2004",
+    "type": "regular",
+    "nombre": "Mesa",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 948,
+    "precio_envio": 720,
+    "descripcion": "Dolore est deserunt aute sit culpa occaecat. Nisi sint minim commodo consectetur. Aliquip amet sit irure proident. Labore in deserunt nulla labore proident adipisicing et nulla. Deserunt incididunt reprehenderit magna pariatur.\r\n",
+    "categoria": "Inmuebles"
+  },
+  {
+    "id": "5eacef124b07f881272ba5dd",
+    "type": "regular",
+    "nombre": "Zapatos",
+    "img": "https://picsum.photos/id/1/400/300",
+    "precio": 294,
+    "precio_envio": 750,
+    "descripcion": "Culpa ad do amet duis deserunt ipsum eu nostrud in sunt tempor ad commodo ut. Adipisicing est nisi et Lorem aliqua est in esse velit ex. Velit magna id Lorem velit sint velit labore id pariatur. Aliquip veniam adipisicing consectetur ad minim incididunt quis qui duis consequat voluptate exercitation.\r\n",
+    "categoria": "Videojuegos"
+  }
+]

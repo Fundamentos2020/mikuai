@@ -332,3 +332,64 @@ function compras() {
     document.getElementById('comprass').appendChild(divscrll);
 
 }
+
+
+
+
+function LoadProducts() {
+    const xhr = new XMLHttpRequest();
+
+    // Abrimos la conexion
+    xhr.open('GET', 'Products.json', true);
+    
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const prd = JSON.parse( this.responseText ) ;
+            
+            // Generar el HTML
+            let htmlPrd = ``;
+            
+            // Imprimir cada img
+            prd.forEach(function(prod) {
+                    htmlPrd += `
+                    
+                    <div style="padding: 1em;" class="w-s-100 w-m-33">
+            
+                        <div class="bxprdct">
+
+                            <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="${prod.img}" alt=""> </a> </div>
+
+                            <div class="pdimfo">
+                                <div style="font-size: 2em;">
+                                    $${prod.precio},00
+                                </div>
+                                <div style="height: 2.2em; overflow:hidden; text-overflow:ellipsis;">
+                                    ${prod.descripcion}
+                                </div>
+                            </div>
+                
+                            <div class="row">
+                                <div class="col-m-5 col-s-5 btnbox" >
+                                    <a class="btn btncomprar" href="">Comprar</a>
+                                </div>
+                                <div class="col-m-7 col-s-7 btnbox" >
+                                    <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
+                                </div>
+                
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    `;
+            })
+
+            document.getElementById('arts').innerHTML = htmlPrd;
+        }
+    }
+    
+    // Enviar el Request
+    xhr.send();
+    
+}

@@ -8,7 +8,7 @@
     <link rel="icon" href="/img/logor.png" />
     <title>MiKuai</title>
 </head>
-<body>
+<body onload="LoadProducts()">
     <script src="temp.js"></script>
 
     <!-- Title and search, menu -->
@@ -121,9 +121,9 @@
     </div>
     
     <!-- Articulos -->
-    <div class="row pdconten pdconten-m" >
+    <div class="row pdconten pdconten-m" id="arts" >
         
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
+        <!-- <div style="padding: 1em;" class="w-s-100 w-m-33">
             
             <div class="bxprdct">
 
@@ -133,7 +133,7 @@
                     <div style="font-size: 2em;">
                         $000,00
                     </div>
-                    <div>
+                    <div style="height: 1em;">
                         Informacion de Articulo
                     </div>
                 </div>
@@ -149,215 +149,7 @@
                 </div>
             </div>
 
-        </div>
-
-
-
-
-
-
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
-            
-            <div class="bxprdct">
-
-                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
-
-                <div class="pdimfo">
-                    <div style="font-size: 2em;">
-                        $000,00
-                    </div>
-                    <div>
-                        Informacion de Articulo
-                    </div>
-                </div>
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
-            
-            <div class="bxprdct">
-
-                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
-
-                <div class="pdimfo">
-                    <div style="font-size: 2em;">
-                        $000,00
-                    </div>
-                    <div>
-                        Informacion de Articulo
-                    </div>
-                </div>
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
-            
-            <div class="bxprdct">
-
-                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
-
-                <div class="pdimfo">
-                    <div style="font-size: 2em;">
-                        $000,00
-                    </div>
-                    <div>
-                        Informacion de Articulo
-                    </div>
-                </div>
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
-            
-            <div class="bxprdct">
-
-                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
-
-                <div class="pdimfo">
-                    <div style="font-size: 2em;">
-                        $000,00
-                    </div>
-                    <div>
-                        Informacion de Articulo
-                    </div>
-                </div>
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
-            
-            <div class="bxprdct">
-
-                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
-
-                <div class="pdimfo">
-                    <div style="font-size: 2em;">
-                        $000,00
-                    </div>
-                    <div>
-                        Informacion de Articulo
-                    </div>
-                </div>
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <div style="padding: 1em;" class="w-s-100 w-m-33">
-            
-            <div class="bxprdct">
-
-                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
-
-                <div class="pdimfo">
-                    <div style="font-size: 2em;">
-                        $000,00
-                    </div>
-                    <div>
-                        Informacion de Articulo
-                    </div>
-                </div>
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-        
-
-
-
+        </div> -->
 
     </div>
 
