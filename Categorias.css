@@ -12,8 +12,8 @@
     .w-s-35 {width: 35%;}
     .w-s-40 {width: 40%;}
 
-    .w-s-45 {width: 45%;}
-    .w-s-50 {width: 50%;}
+    .w-s-45c {width: 45%;}
+    .w-s-50c {width: 50%;}
     .w-s-55 {width: 55%;}
     .w-s-60 {width: 60%;}
     .w-s-65 {width: 65%;}
@@ -21,7 +21,7 @@
 
 @media (min-width: 768px){
     .contp {
-        margin: 5em 8em 6.5em 8em;
+        margin: 6em 8em 8em 8em;
         display: block;
     }
     .w-m-15 {width: 15%;}

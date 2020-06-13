@@ -1,0 +1,39 @@
+php_flag display_errors on
+
+#CROS options
+Header always Set Access-Control-Allow-Origin "*"
+Header always Set Access-Control-Allow-Methods "POST, PATCH, GET, OPTIONS, DELETE"
+Header always Set Access-Control-Allow-Headers "Content-type, Authorization"
+
+RewriteEngine On
+
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#Productos
+RewriteRule ^producto/cont/([0-9]+)$ Controllers/productoController.php?cont=$1 [L]
+RewriteRule ^producto/([0-9]+)$ Controllers/productoController.php?producto_id=$1 [L]
+RewriteRule ^product/([0-9]+)$ Controllers/productoController.php?product=$1 [L]
+RewriteRule ^producto/search/(.*)/([0-9]+)$ Controllers/productoController.php?src=$1&conta=$2 [L]
+
+RewriteRule ^producto/categoria/(.*)/([0-9]+)$ Controllers/productoController.php?categoria=$1&catcont=$2 [L]
+RewriteRule ^producto/descuento/([0-9]+)$ Controllers/productoController.php?descuento=$1 [L]
+RewriteRule ^producto/novedades/([0-9]+)$ Controllers/productoController.php?novedades=$1 [L]
+
+
+#Usuarios
+RewriteRule ^usuario$ Controllers/usuarioController.php [L]
+
+#Categias
+RewriteRule ^categorias$ Controllers/categoriasController.php [L]
+
+#Tareas
+RewriteRule ^tareas$ Controllers/tareasController.php [L]
+RewriteRule ^tareas/categoria_id=([0-9]+)$ Controllers/tareasController.php?categoria_id=$1 [L]
+RewriteRule ^tareas/([0-9]+)$ Controllers/tareasController.php?id_tarea=$1 [L]
+
+#Sesiones
+RewriteRule ^sesion$ Controllers/sesionController.php [L]
+RewriteRule ^sesion/([0-9]+)$ Controllers/sesionController.php?id=$1 [L]

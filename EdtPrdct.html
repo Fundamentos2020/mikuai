@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="temp.css">
-    <link rel="stylesheet" href="Descuentos.css">
-    <link rel="stylesheet" href="Producto.css">
-    <link rel="stylesheet" href="Pagar.css">
+    <link rel="stylesheet" href="EdtPrdct.css">
     <link rel="icon" href="/img/logor.png" />
-    <title id="titleh">MiKuai | Descuentos y Rebajas</title>
+    <title id="titleh">MiKuai | Editar producto</title>
 </head>
-<body onload="LoadProductsDesc()">
+<body>
     <script src="temp.js"></script>
-    <script src="Descuentos.js"></script>
+    <script src="EdtPrdct.js"></script>
 
     <!-- Title and search, menu -->
     <div class="row bar trans">
@@ -70,61 +68,83 @@
     <div id="Cshop">
     </div>
 
-    <div id="btnatrs"></div>
+    <!-- Edicion -->
+    <div class="cont">
 
-    <div id="pagrprd"></div>
+        <div class="log">
+            <div class="title"> Eligue y Cambia los datos del producto</div>
 
-    <div id="contnprd"></div>
-    
-    <!-- Articulos -->
-    <div class="row pdconten pdconten-m" id="arts">
-        
-        <!--<div style="padding: 1em;" class="w-s-100 w-m-33">
+            <div class="usr usr-s">
             
-            <div class="bxprdct">
-                <div class = "product" > <a onclick="Producto(event)" href=""> 
+                <div class="srchinped row"> 
+                    <input class="col-m-9 col-s-9" id="schrtxPrd" placeholder="Id del producto" type="text"> 
+                    
+                    <a class="col-m-3 col-s-3 srchibtned btn" onclick="searchBtPrdId(event)" href="" >Search</a>
+                </div>
+            
+            </div>
                 
-                    <div class="des"> 50% Off </div>     
-                    <img src="https://picsum.photos/id/1/400/300" alt=""> </a> 
+
+            <div class="usr usr-s"> 
+                <input class="usrtxt w-m-40 w-s-90 m-r" placeholder="Nombre" type="text" id="nom">
                 
-                </div>
+                <input class="usrtxt  w-m-40 w-s-90" placeholder="Precio" type="text" id="precio"> 
 
-                <div class="pdimfo">
-                    <div class="pdimfod" style="font-size: 2em;">
-                        <strike>$000,00</strike>   
-                        $000,00
-                    </div>
-
-                    <div class="pdimfod">
-                        Informacion de Articulo
-                    </div>
-                </div>
-
-    
-                <div class="row">
-                    <div class="col-m-5 col-s-5 btnbox" >
-                        <a class="btn btncomprar" href="">Comprar</a>
-                    </div>
-                    <div class="col-m-7 col-s-7 btnbox" >
-                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
-                    </div>
-    
-                </div>
             </div>
 
-        </div> -->
+
+            <div class="usr usr-s"> 
+                <input class="usrtxt w-m-40 w-s-90 m-r" placeholder="Precio Envio" type="text" id="envio">
+                
+                <input class="usrtxt  w-m-40 w-s-90" value="0" placeholder="Descuento" type="text" id="descuento"> 
+
+            </div>
 
 
-        
+            <div class="usr usr-s"> 
+                <div class=" usrtxt row w-m-40 w-s-90 m-r">
+                    <input class="col-m-12" onchange="changeImg()" type="file" id="seleccionArchivos" accept="image/*">
+                            
+                    <img id="primg" style=" width: 100%; " class="foto col-m-12" id="imagenPrevisualizacion" src="" >
+                </div>
+                
+                <textarea id="descripcion" rows="10" cols="40" class="usrtxt  w-m-40 w-s-90"></textarea>
 
+            </div>
+
+            
+            <div class="usr usr-s" id="usr">
+                <select id="categoria" class="usrtxt w-m-40 w-s-90 m-r">
+                    <option value="Automoviles">Automoviles</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Electrodomesticos">Electrodomesticos</option>
+                    <option value="Joyas">Joyas</option>
+                    <option value="Herramientas">Herramientas</option>
+                    <option value="Videojuegos">Videojuegos</option>
+                    <option value="Libros">Libros</option>
+                    <option value="Software">Software</option>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Juguetes">Juguetes</option>
+                    <option value="Inmuebles">Inmuebles</option>
+                  </select>
+            </div>
+
+
+            <div id="mserr"></div>
+            
+            <div class="usr usr-s btnemail" > <button onclick="sentData(event)" class="btn" href="">Crear Cuenta</button> </div>
+
+
+
+            
+
+        </div>
 
 
     </div>
 
-    <!-- Paginacion -->
-    <div class="pgn" id="ipgn">
-    </div>
-
+    
     <!-- Pie de pagina -->
     <div class="row pie">
 

@@ -2,34 +2,39 @@
 
 function password(e,t){
     e.preventDefault();
-    
-    //Eliminar "Continuar"
-    t.remove();
 
-    //Crar input 
-    const psw = document.createElement('input');
-    psw.placeholder = "Contraseña";
-    psw.classList.add("usrtxt");
-    psw.type = "password";
+    emil = document.getElementById('email').value;
 
-    document.getElementById('pswrd').appendChild(psw);
+    console.log(emil);
+    if(emil !== "") {
+        //Eliminar "Continuar"
+        t.remove();
 
-    //Crear "Iniciar sesion"
-    const btn = document.createElement('button');
-    btn.classList.add("btn");
-    btn.textContent = "Iniciar Sesión";
+        //Crar input 
+        const psw = document.createElement('input');
+        psw.placeholder = "Contraseña";
+        psw.classList.add("usrtxt");
+        psw.type = "password";
 
-    document.getElementById('inss').appendChild(btn);
+        document.getElementById('pswrd').appendChild(psw);
 
-    //Quitar crear cuenta
-    document.getElementById('ccbtn').remove();
+        //Crear "Iniciar sesion"
+        const btn = document.createElement('button');
+        btn.classList.add("btn");
+        btn.textContent = "Iniciar Sesión";
 
-    //Crear "Olvide mi contraseña"
-    const btnss = document.createElement('button');
-    btnss.classList.add("btn", "btncracta");
-    btnss.textContent = "No sé mi contraseña";
-    btnss.style = "width: 11em;";
+        document.getElementById('inss').appendChild(btn);
 
-    document.getElementById('cc').appendChild(btnss);
+        //Quitar crear cuenta
+        document.getElementById('ccbtn').remove();
+
+        //Crear "Olvide mi contraseña"
+        const btnss = document.createElement('button');
+        btnss.classList.add("btn", "btncracta");
+        btnss.textContent = "No sé mi contraseña";
+        btnss.style = "width: 11em;";
+
+        document.getElementById('cc').appendChild(btnss);
+    }
 
 }

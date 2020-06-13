@@ -24,21 +24,12 @@
     .m-r{margin-right: 1em;}
 
     .contn {
-        margin-top: 2em;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-content: center;
         align-items: center;
     }
-}
-
-.contn {
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
 }
 
 .about {
@@ -50,10 +41,8 @@
 .atxt {
     text-align: start;
     font-weight: bold;
-    font-size: 3em;
     color: #a7ff83;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 1em 0.5em 0em 0.5em;
 }
 
 .foto {
@@ -67,7 +56,6 @@
 .infp div {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
-    margin-bottom: 1em;
 }
 
 

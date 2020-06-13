@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="temp.css">
     <link rel="stylesheet" href="Producto.css">
+    <link rel="stylesheet" href="Descuentos.css">
+    
     <link rel="icon" href="/img/logor.png" />
     <title>MiKuai | Producto</title>
 </head>
@@ -21,9 +23,9 @@
         <div class="col-m-10 col-s-12">
             <div class="row">
             
-                <div class="col-m-10 col-s-8 srchinp" > <input placeholder="Search" type="text"> </div>
+                <div class="col-m-10 col-s-8 srchinp" > <input id="schrtx" placeholder="Search" type="text"> </div>
                 
-                <div class="col-m-2 col-s-4 srchibtn"> <a href="" class=" srchibtna btn"> Search </a> </div>
+                <div class="col-m-2 col-s-4 srchibtn"> <a onclick="searchbt(event)" href="" class=" srchibtna btn"> Search </a> </div>
             
             </div>
         </div>
@@ -43,23 +45,19 @@
                     <a class="btn mnbtn" href="Categorias.html">Categorias</a>
                 </div>
 
-                <div style="height: 3.15em; background-color: #2e3034;" style="display: flex;" class="col-m-3">
+                <div style="height: 3.30em; background-color: #2e3034;" style="display: flex;" class="col-m-5">
                    
                 </div>
 
-                <div style="display: flex;" class="col-m-2 col-s-6">
-                    <a class="btn mnbtn" href="LogIn.html">Iniciar Sesion</a>
-                </div>
-
-                <div style="display: flex;" class="col-m-1 col-s-5">
-                    <a class="btn mnbtn" href="SignIn.html">Registrarse</a>
-                </div>
-
-                <div style="display: flex;" class="col-m-1 col-s-5">
+                <div style="display: flex;" class="col-m-1 col-s-6">
                     <a class="btn mnbtn" href="About.html">Informacion</a>
                 </div>
 
-                <div style="display: flex;" class="col-m-1 col-s-2">
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="LogIn.html" style="width: 100%; padding: 0;">  <img src="img/Mono.png" alt=""> </a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
                     <a onclick="ShopCar(event,this)" style="width: 100%; padding: 0;" class="btn mnbtn" href=""> <img src="img/Carrito.png" alt=""> </a>
                 </div>
                 
@@ -78,15 +76,21 @@
 
         <div class="about w-s-50 w-m-50">
 
-            <div class="atxt">Nombre del Porducto</div>
+            <div class="atxt" style="font-size: 3em; margin-top: 1em; margin-left: 0.5em;">Nombre del Porducto</div>
+            <div class="atxt" style="font-size: 2em; margin-left: 1em;">Categoria</div>
 
             <div style="margin-bottom: 2em;" class="contn contn-s">
-                <img class="foto w-s-45 w-m-45 m-r" src="https://picsum.photos/500/300" alt="">
+                <div class="w-s-45 w-m-45 m-r">
+                    <div class="desc"> 10% Off </div>
+                    <img class="foto" style="width: 100%; display: block;" src="https://picsum.photos/500/300" alt="">
+                </div>
 
                 <!-- Info -->
                 <div class="infp w-m-txt w-s-txt">
 
-                    <div style="font-weight: bold; font-size: 2em; margin-top: 2em; ">$000,00</div>
+                    <div style="font-weight: bold; font-size: 2em; margin-top: 2em; margin-bottom: 1em;">$000,00</div>
+
+                    <div style="font-weight: bold; font-size: 1.2em;">Precio de envio $000,00</div>
 
                     <div>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quis eum numquam consectetur vel

@@ -1,19 +1,71 @@
-//document.querySelector('.vlvarriba').addEventListener('click',volvArriba(event));
+//
+const api = "http://localhost:80/Proyecto/";
+const client = "http://localhost:80/Proyecto/";
 
-// General
+var pagAct = 1;
+var cant = 10;
+var cantPag = 0;
+var cantPrd = 20;
+var totalPrd = 0;
+
+function getSesion() {
+    var sesion = localStorage.getItem("ltareas_sesion");
+    
+    if (sesion != null && sesion != "")
+    {
+        var sesion_json = JSON.parse(sesion);
+
+        return sesion_json;
+    }
+    
+    return null;
+}
+
+function refreshToken() {
+    var sesion = getSesion();
+
+    if (sesion == null) {
+        window.location.href = client;
+    }
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.open("PATCH", api + "sesiones/" + sesion.id_sesion, false);
+    xhttp.setRequestHeader("Authorization", sesion.token_acceso);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+
+    var json = { "token_actualizacion": sesion.token_actualizacion };
+    var json_string = JSON.stringify(json);
+
+    xhttp.send(json_string);
+
+    var data = JSON.parse(xhttp.responseText);
+
+    if (data.success === true){
+        localStorage.setItem('ltareas_sesion', JSON.stringify(data.data));
+        window.location.href = client;
+    }
+    else{
+        alert(data.messages);
+        window.location.href = client;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 //Boton pata volver arriba
 function volvArriba(e) {
     e.preventDefault();
-    console.log(e);
     window.scrollTo(0, 0);
 }
 
-function Producto(e) {
-    e.preventDefault();
-    window.location.href='/Producto.html';
-}
- 
 //Muestra carrito de compras
 function ShopCar(e,t) {
     e.preventDefault();
@@ -60,7 +112,7 @@ function showCar() {
 
     let prods = obtenerLocalSt();
 
-    
+    var tot = 0;
     var pay = false;
 
     const divscrll = document.createElement('div');
@@ -69,64 +121,89 @@ function showCar() {
     prods.forEach(function(elm) {
         //prn.appendChild(elm);
 
-        pay = true;
+        const xhr = new XMLHttpRequest();
+        // Abrimos la conexion
+        xhr.open('GET', api + "product/" + elm , false);
+        
 
-        //img
-        const ima = document.createElement('img');
-        ima.src = "https://picsum.photos/id/1/80/80";
-        ima.classList.add("img-fluid");
+        xhr.onload = function() {
+            if(this.status === 200) {
+                const prd = JSON.parse( this.responseText ) ;
 
-        const imag = document.createElement('div');
-        imag.classList.add("col-m-2", "col-s-2");
+                pay = true;
 
-        imag.appendChild(ima);
-        //
+                //img
+                const ima = document.createElement('img');
+                ima.src = "https://picsum.photos/id/1/80/80";
+                ima.classList.add("img-fluid");
 
-        //text
-        const txt = document.createElement('div');
-        txt.classList.add("col-m-4", "col-s-4");
-        txt.innerText = `Lorem ipsum dolor sit`;
-        //
+                const imag = document.createElement('div');
+                imag.classList.add("col-m-2", "col-s-2");
 
-        //Precio
-        const price = document.createElement('div');
-        price.innerText = `$000,00`;
-        price.classList.add("CarPrice");
+                imag.appendChild(ima);
+                //
 
-        const pgen = document.createElement('div');
-        pgen.classList.add("col-m-4", "col-s-4");
-        pgen.appendChild(price);
-        //
+                //text
+                const txt = document.createElement('div');
+                txt.classList.add("col-m-4", "col-s-4");
+                txt.style="padding-left: 1em;";
+                txt.innerText = `${prd.data.producto[0].nombre}`;
+                //
 
-        //boton x
-        const btn = document.createElement('button');
-        btn.innerText = `x`;
-        btn.classList.add("x");
-        btn.onclick = borrarPrd;
-        const botn = document.createElement('div');
-        botn.classList.add("col-m-2", "col-s-2");
-        botn.appendChild(btn);
-        //
+                //Precio
+                const price = document.createElement('div');
+                if(prd.data.producto[0].descuento !== 0)
+                {
+                    price.innerText = `$${prd.data.producto[0].precio - (prd.data.producto[0].precio*(prd.data.producto[0].descuento/100))}`;
+                    tot += prd.data.producto[0].precio - (prd.data.producto[0].precio*(prd.data.producto[0].descuento/100));
+                }
+                else {
+                    price.innerText = `$${prd.data.producto[0].precio}`;
+                    tot += prd.data.producto[0].precio;
+                }
+                price.classList.add("CarPrice");
+
+                const pgen = document.createElement('div');
+                pgen.classList.add("col-m-4", "col-s-4");
+                pgen.appendChild(price);
+                //
+
+                //boton x
+                const btn = document.createElement('button');
+                btn.innerText = `x`;
+                btn.classList.add("x");
+                btn.onclick = function(){borrarPrd(event,elm)};
+                const botn = document.createElement('div');
+                botn.classList.add("col-m-2", "col-s-2");
+                botn.appendChild(btn);
+                //
 
 
-        //div general
-        const gen = document.createElement('div');
-        gen.classList.add("row", "bt", "box");
-        //
+                //div general
+                const gen = document.createElement('div');
+                gen.classList.add("row", "bt", "box");
+                //
 
-        //Agregar todo a div gen
-        gen.appendChild(imag);
-        gen.appendChild(txt);
-        gen.appendChild(pgen);
-        gen.appendChild(botn);
+                //Agregar todo a div gen
+                gen.appendChild(imag);
+                gen.appendChild(txt);
+                gen.appendChild(pgen);
+                gen.appendChild(botn);
 
-        //link
-        const adiv = document.createElement('a');
-        adiv.href = "Producto.html";
-        adiv.appendChild(gen);
-        //
+                //link
+                const adiv = document.createElement('a');
+                adiv.href = "";
+                //adiv.onclick = function(){viewProd(prd.data.producto[0].id)};
+                adiv.appendChild(gen);
+                //
 
-        divscrll.appendChild(adiv);
+                divscrll.appendChild(adiv);
+
+            }
+        }
+
+        xhr.send();
+    
     });
 
     prn.appendChild(divscrll);
@@ -135,16 +212,16 @@ function showCar() {
     if(pay)
     {
         const dpag = document.createElement('div');
-        dpag.innerHTML = `Total`;
+        dpag.innerHTML = 'Total';
         dpag.classList.add("CarPrice", "col-m-3", "col-s-3");
 
         const dots = document.createElement('div');
-        dots.innerHTML = `.....................................`;
+        dots.innerHTML = `.............`;
         dots.classList.add("CarPrice", "col-m-3", "col-s-3");
 
 
         const price = document.createElement('div');
-        price.innerText = `$000,00`;
+        price.innerText = `$` + tot;
         price.classList.add("CarPrice", "col-m-4", "col-s-4");
 
         const btnp = document.createElement('button');
@@ -181,34 +258,29 @@ function xm(e,t) {
 //Agrega al carrito de compras
 function addCar(e,t) {
     e.preventDefault();
-    
-    const adiv = "elem";
 
-    agregarLocalSt(adiv);
+    agregarLocalSt(t);
 
     showCar();
 }
 
-
-
-
 //Agregar elemento a Local Storage
 function agregarLocalSt(elem) {
-    let elems = obtenerLocalSt();
+    var elems = obtenerLocalSt();
 
     //Añadir el nuevo tweet
-    elems.push(elem);
-
+    if(!elems.includes(elem))
+        elems.push(elem);
     //Convertir a string a arreglo para ls
-    //localStorage.setItem('elems', JSON.stringify(elems))
-    localStorage.setItem('elems', JSON.stringify(elems))
+    localStorage.setItem('elems', JSON.stringify(elems));
+    //localStorage.setItem('elems', elems)
 
 }
 
 
 //Obtener los elementos de Local Storage
 function obtenerLocalSt() {
-    let elems;
+    var elems;
 
     //Checar valores de local storage
     if(localStorage.getItem('elems') === null) {
@@ -221,11 +293,16 @@ function obtenerLocalSt() {
 
 //Eliminar elemento de Local Storage 
 function borrarTeetLs(elemtBr) {
-    let elems;
+    var elems;
     
     elems = obtenerLocalSt();
 
-    elems.pop();
+    const index = elems.indexOf(elemtBr);
+    if (index > -1) {
+        elems.splice(index, 1);
+    }
+
+    localStorage.setItem('elems', JSON.stringify(elems))
 
     showCar();
 
@@ -244,9 +321,12 @@ function borrarTeetLs(elemtBr) {
 function borrarPrd(e,t) {
     e.preventDefault();
 
-    e.path[3].remove();
+    borrarTeetLs(t);
+}
 
-    borrarTeetLs(e.path[3].innerHTML);
+function borrarPrdct(e,t) {
+    location.reload();
+    borrarTeetLs(t);
 }
 
 
@@ -264,117 +344,170 @@ function compras() {
 
     const divscrll = document.createElement('div');
     divscrll.classList.add("scrllp");
+    var tot = 0;
+    var env = 0;
+    var des = 0;
 
     prods.forEach(function(elm) {
         //prn.appendChild(elm);
 
-        pay = true;
-
-        //img
-        const ima = document.createElement('img');
-        ima.src = "https://picsum.photos/id/1/80/80";
-        ima.classList.add("img-fluid");
-
-        const imag = document.createElement('div');
-        imag.classList.add("col-m-2", "col-s-2");
-
-        imag.appendChild(ima);
-        //
-
-        //text
-        const txt = document.createElement('div');
-        txt.classList.add("col-m-4", "col-s-4");
-        txt.innerText = `Lorem ipsum dolor sit`;
-        //
-
-        //Precio
-        const price = document.createElement('div');
-        price.innerText = `$000,00`;
-        price.classList.add("Prie");
-
-        const pgen = document.createElement('div');
-        pgen.classList.add("col-m-4", "col-s-4");
-        pgen.appendChild(price);
-        //
-
-        //boton x
-        const btn = document.createElement('div');
-        //btn.innerText = `x`;
-        //btn.classList.add("x");
-        ///btn.onclick = borrarPrd;
-        const botn = document.createElement('div');
-        botn.classList.add("col-m-2", "col-s-2");
-        botn.appendChild(btn);
-        //
-
-
-        //div general
-        const gen = document.createElement('div');
-        gen.classList.add("row", "bt", "boxp");
-        //
-
-        //Agregar todo a div gen
-        gen.appendChild(imag);
-        gen.appendChild(txt);
-        gen.appendChild(botn);
-        gen.appendChild(pgen);
+        const xhr = new XMLHttpRequest();
+        // Abrimos la conexion
+        xhr.open('GET', api + "product/" + elm , false);
         
 
-        //link
-        const adiv = document.createElement('a');
-        adiv.href = "Producto.html";
-        adiv.appendChild(gen);
-        //
+        xhr.onload = function() {
+            if(this.status === 200) {
+                const prd = JSON.parse( this.responseText ) ;
 
-        divscrll.appendChild(adiv);
+                pay = true;
+
+                //img
+                const ima = document.createElement('img');
+                ima.src = "https://picsum.photos/id/1/80/80";
+                ima.classList.add("img-fluid");
+
+                const imag = document.createElement('div');
+                imag.classList.add("col-m-2", "col-s-2");
+
+                imag.appendChild(ima);
+                //
+
+                //text
+                const txt = document.createElement('div');
+                txt.classList.add("col-m-4", "col-s-4");
+                txt.style="padding-left: 1em;";
+                txt.innerText = `${prd.data.producto[0].nombre}`;
+                //
+
+                //Precio
+                const price = document.createElement('div');
+                if(prd.data.producto[0].descuento !== 0)
+                {
+                    price.innerText = `$${prd.data.producto[0].precio - (prd.data.producto[0].precio*(prd.data.producto[0].descuento/100))}`;
+                    tot += prd.data.producto[0].precio - (prd.data.producto[0].precio*(prd.data.producto[0].descuento/100));
+                }
+                else {
+                    price.innerText = `$${prd.data.producto[0].precio}`;
+                    tot += prd.data.producto[0].precio;
+                }
+                price.classList.add("CarPrice");
+
+                const pgen = document.createElement('div');
+                pgen.classList.add("col-m-4", "col-s-4");
+                pgen.appendChild(price);
+                //
+
+                //boton x
+                const btn = document.createElement('button');
+                btn.innerText = `x`;
+                btn.classList.add("x");
+                btn.onclick = function(){borrarPrdct(event,elm)};
+                const botn = document.createElement('div');
+                botn.classList.add("col-m-2", "col-s-2");
+                botn.appendChild(btn);
+                //
+
+
+                //div general
+                const gen = document.createElement('div');
+                gen.classList.add("row", "bt", "box");
+                //
+
+                //Agregar todo a div gen
+                gen.appendChild(imag);
+                gen.appendChild(txt);
+                gen.appendChild(pgen);
+                gen.appendChild(botn);
+
+                //link
+                const adiv = document.createElement('div');
+                adiv.href = "Producto.html";
+                adiv.appendChild(gen);
+                //
+
+                divscrll.appendChild(adiv);
+
+                env += prd.data.producto[0].envio;
+                des += prd.data.producto[0].descuento;
+
+            }
+        }
+
+        xhr.send();
     });
 
     document.getElementById('comprass').appendChild(divscrll);
+
+    let inht = `
+            <div style="font-size: 1.5em;" class="atxt">Resumen de la compra</div>
+            <div style="margin: 1.5em 0.5em 1em 2em;" class="ntxt">Descripcion *********</div>
+
+        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Productos ........... $${tot}</div>
+
+        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Envio ................... $${env}</div>
+
+        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Descuento .......... $${des}</div>
+
+        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Total a pagar ...... $${tot + env - des}</div>
+    
+    `;
+
+    document.getElementById('totpag').innerHTML = inht;
 
 }
 
 
 
-
+//Cargar Productos
 function LoadProducts() {
     const xhr = new XMLHttpRequest();
-
+    window.scrollTo(0, 0);
     // Abrimos la conexion
-    xhr.open('GET', 'Products.json', true);
+    xhr.open('GET', api + "producto/cont/" + pagAct , false);
     
 
     xhr.onload = function() {
         if(this.status === 200) {
             const prd = JSON.parse( this.responseText ) ;
-            
+
             // Generar el HTML
             let htmlPrd = ``;
             
+            let totalPrdu = prd.data.total_registros;
+            totalPrd = totalPrdu;
+
+            let numPagi = Math.floor(totalPrd/cantPrd);
+            cantPag = numPagi;
+            
             // Imprimir cada img
-            prd.forEach(function(prod) {
+            prd.data.productos.forEach(function loop(prod) {
                     htmlPrd += `
                     
                     <div style="padding: 1em;" class="w-s-100 w-m-33">
             
                         <div class="bxprdct">
 
-                            <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="${prod.img}" alt=""> </a> </div>
+                            <div class = "product" > <a href=" " onclick="loadProducto(event,${prod.id})" > <img src="https://picsum.photos/200/300" alt=""> </a> </div>
 
                             <div class="pdimfo">
-                                <div style="font-size: 2em;">
-                                    $${prod.precio},00
+                                <div style="font-size: 2em; margin-top: 1em;">
+                                    ${prod.nombre}
                                 </div>
-                                <div style="height: 2.2em; overflow:hidden; text-overflow:ellipsis;">
+                                <div style="font-size: 1.5em;">
+                                    $${prod.precio}
+                                </div>
+                                <div style="height: 2.5em; overflow:hidden; text-overflow:ellipsis;">
                                     ${prod.descripcion}
                                 </div>
                             </div>
                 
                             <div class="row">
-                                <div class="col-m-5 col-s-5 btnbox" >
-                                    <a class="btn btncomprar" href="">Comprar</a>
+                                <div class="col-m-5 col-s-5 btnbox margin-top: 1em;" >
+                                    <a onclick="cpmrProdcts(event,${prod.id})" class="btn btncomprar" href="">Comprar</a>
                                 </div>
                                 <div class="col-m-7 col-s-7 btnbox" >
-                                    <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
+                                    <a onclick="addCar(event,${prod.id})" class="btn btncarrito" href="">Agregar al carrito</a>
                                 </div>
                 
                             </div>
@@ -391,5 +524,431 @@ function LoadProducts() {
     
     // Enviar el Request
     xhr.send();
+    cargPag();
+}
+
+//Cargar paginacion
+function cargPag(){
+    // Generar el HTML
+    let htmlPg = '';
+
+    if(cantPag >= 1)
+    {
+        htmlPg += `<a onclick="ChangePage(event)"; class="pgna" href="">${"Anterior"}</a>
+                    `;
+    }
+
+    for(let i=0; i <= cantPag ; i++)
+    {
+        if((i+1).toString() === pagAct.toString())
+            htmlPg += `<a onclick="ChangePage(event)"; class="asel" href="">${i+1}</a>
+                      `;
+        else
+            htmlPg += `<a onclick="ChangePage(event)"; class="pgna" href="">${i+1}</a>
+                      `;
+    }
+    if(cantPag >= 1)
+    {
+        htmlPg += `<a onclick="ChangePage(event)"; class="pgna" href="">${"Siguiente"}</a>
+                    `;
+    }
+
+    document.getElementById('ipgn').innerHTML = htmlPg;
+}
+
+//Cambiar de pagina
+function ChangePage(e) {
+    e.preventDefault();
+
+    window.scrollTo(0, 0); 
+
+
+    let t = e.toElement.text;
+    if(t === "Siguiente")
+    {    
+        if(parseInt(pagAct)+1 <= cantPag+1)
+            pagAct++;
+    }
+    else
+    {
+        if(t === "Anterior")
+        {
+            if(parseInt(pagAct)-1  >= 0)
+                pagAct--;
+        }
+        else
+        {
+            pagAct = t; 
+        }
+    }   
+    LoadProducts();
+}
+
+//Moestrar producto
+
+
+function loadProducto(e,t) {
+    e.preventDefault();
+
+    viewProd(t);
+}
+
+//visualizar producto y atras
+function viewProd(t){
+    window.scrollTo(0, 0);
+    document.getElementById('arts').innerHTML = ``;
+
+    document.getElementById('ipgn').innerHTML = ``;
+
+    document.getElementById('btnatrs').innerHTML = `
+    <div class="row pdconten pdconten-m" >
+
+        <div style="width: 100%;" class="row">
+
+            <div style="padding-left: 0.5em;  margin-top: 1em;" class="col-m-2 col-s-12">
+                <button onclick="atras(event)" class="btn btnatras">Atras</button>
+            </div>
+
+        </div>
+    </div>
+    `;
+
+
+    const xhr = new XMLHttpRequest();
+    // Abrimos la conexion
+    xhr.open('GET', api + "product/" + t , false);
     
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const prd = JSON.parse( this.responseText ) ;
+            nome = "MiKuai | " + prd.data.producto[0].nombre;
+            document.getElementById('titleh').innerText = nome;
+            // Generar el HTML
+            let htmlPrd = ``;
+            
+            // Imprimir cada img
+            
+                    htmlPrd += `
+        <div style="padding: 5em 0 10em 0;" class="contn" id="contnprd">
+            <div class="about w-s-50 w-m-50">
+
+                <div class="atxt" style="font-size: 3em; margin-top: 1em; margin-left: 0.5em;">${prd.data.producto[0].nombre}</div>
+
+                <div class="atxt" style="font-size: 2em; margin-left: 1.5em; font-style: oblique;">${prd.data.producto[0].categoria}</div>
+
+                <div style="margin-bottom: 2em;" class="contn contn-s">
+                    <img class="foto w-s-45 w-m-45 m-r" src="https://picsum.photos/500/300" alt="">
+
+                    <!-- Info -->
+                    <div class="infp w-m-txt w-s-txt">
+
+                        <div style="font-weight: bold; font-size: 2em; margin-top: 2em; margin-bottom: 1em;">$${prd.data.producto[0].precio}</div>
+
+                        <div style="font-weight: bold; font-size: 1.2em;">Precio de envio $${prd.data.producto[0].envio}</div>
+
+                        <div>
+                            ${prd.data.producto[0].descripcion}
+                        </div>
+
+                        <div style="margin-top: 3em;" class="row">
+                            <div class="col-m-5 col-s-5 btnbox" >
+                                <a onclick="cpmrProd(event,${prd.data.producto[0].id})" class="btn btncomprar" href="">Comprar</a>
+                            </div>
+                            <div class="col-m-7 col-s-7 btnbox" >
+                                <a onclick="addCar(event,${prd.data.producto[0].id})" class="btn btncarrito" href="">Agregar al carrito</a>
+                            </div>
+            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+                    
+                    
+                    `;
+            
+
+            document.getElementById('contnprd').innerHTML = htmlPrd;
+        }
+    }
+    
+    // Enviar el Request
+    xhr.send();
+}
+
+function atras(e) {
+    e.preventDefault();
+    document.getElementById('btnatrs').innerHTML = ``;
+    document.getElementById('contnprd').innerHTML = ``;
+    document.getElementById('titleh').innerText = "MiKuai";
+    LoadProducts();
+}
+
+//visualizar compra y atras
+function atrasC(e,t) {
+    e.preventDefault();
+    document.getElementById('btnatrs').innerHTML = ``;
+    document.getElementById('contnprd').innerHTML = ``;
+    document.getElementById('pagrprd').innerHTML = ``;
+    document.getElementById('titleh').innerText = "MiKuai";
+    viewProd(t);
+}
+
+function cpmrProd(e,t){
+
+    e.preventDefault();
+
+    document.getElementById('contnprd').innerHTML = ``;
+
+    document.getElementById('arts').innerHTML = ``;
+
+    document.getElementById('ipgn').innerHTML = ``;
+
+    document.getElementById('btnatrs').innerHTML = `
+    <div class="row pdconten pdconten-m" >
+
+        <div style="width: 100%;" class="row">
+
+            <div style="padding-left: 0.5em;  margin-top: 1em;" class="col-m-2 col-s-12">
+                <button onclick="atrasC(event,${t})" class="btn btnatras">Cancelar</button>
+            </div>
+
+        </div>
+    </div>
+    `;
+
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    const xhr = new XMLHttpRequest();
+    // Abrimos la conexion
+    xhr.open('GET', api + "product/" + t , false);
+    
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const prd = JSON.parse( this.responseText ) ;
+            nome = "MiKuai | " + " Pagar " + prd.data.producto[0].nombre;
+            document.getElementById('titleh').innerText = nome;
+            // Generar el HTML
+            let htmlPrd = ``;
+            
+            // Imprimir cada img
+            
+                    htmlPrd += `
+
+        <div style="padding: 5em 0 10em 0;" class="contn" id="pagrprd">
+            <div class="pgn w-s-pgn w-m-pgn">
+                
+                <div style="font-size: 3em; width: 90%;" class="atxt">Pagar</div>
+
+                <div class="row">
+
+                    <div class="col-m-7 row">
+                        
+                        <div style="font-size: 1.5em;" class="atxt col-m-12 col-s-12">Tus Datos</div>
+
+                        <div style="font-size: 1em; margin: 1.5em 0.5em 1em 2em;" class="ntxt">qwerty@example.com</div>
+
+                        <div style="font-size: 1em; margin: 1.5em 0.5em 3em 2em;" class="ntxt">Nombre</div>
+
+
+                        <div style="font-size: 1.5em;" class="atxt">Producto</div>
+
+
+                        <div class="atxt" style="font-size: 2em; margin-top: 1em; margin-left: 0.5em;">${prd.data.producto[0].nombre}</div>
+
+                        <div class="atxt" style="font-size: 1em; margin-left: 1.5em; font-style: oblique;">${prd.data.producto[0].categoria}</div>
+        
+                        <div style="margin-bottom: 1em;" class="contn contn-s">
+                            <img class="foto w-s-45 w-m-45 m-r" src="https://picsum.photos/500/300" alt="">
+        
+                            <!-- Info -->
+                            <div style="padding-left: 0.5em;" class="infp w-m-txt w-s-txt">
+        
+                                <div style="font-weight: bold; font-size: 1em; margin-top: 2em; margin-bottom: 1em;">$${prd.data.producto[0].precio}</div>
+        
+                                <div style="font-weight: bold; font-size: 0.8em;">Precio de envio $${prd.data.producto[0].envio}</div>
+        
+                                <div>
+                                    ${prd.data.producto[0].descripcion}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-m-5" id="totpag" >
+
+                        <div style="font-size: 1.5em;" class="atxt">Resumen de la compra</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em;" class="ntxt">Descripcion *********</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Producto ........... $${prd.data.producto[0].precio}</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Envio ................. $${prd.data.producto[0].envio}</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Descuento ........ $${prd.data.producto[0].precio * (prd.data.producto[0].descuento /100)}</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Total a pagar .... $${prd.data.producto[0].precio + prd.data.producto[0].envio - (prd.data.producto[0].precio * (prd.data.producto[0].descuento /100))}</div>
+                        
+                    </div>
+                    
+                
+                </div>
+
+                
+
+            </div>
+        </div>  
+                    
+                    `;
+            
+
+            document.getElementById('pagrprd').innerHTML = htmlPrd;
+        }
+    }
+    
+    // Enviar el Request
+    xhr.send();
+}
+
+//visualizar compra de prds y atras
+function cpmrProdcts(e,t){
+
+    e.preventDefault();
+
+    document.getElementById('contnprd').innerHTML = ``;
+
+    document.getElementById('arts').innerHTML = ``;
+
+    document.getElementById('ipgn').innerHTML = ``;
+
+    document.getElementById('btnatrs').innerHTML = `
+    <div class="row pdconten pdconten-m" >
+
+        <div style="width: 100%;" class="row">
+
+            <div style="padding-left: 0.5em;  margin-top: 1em;" class="col-m-2 col-s-12">
+                <button onclick="atrasCPrdcts(event,${t})" class="btn btnatras">Cancelar</button>
+            </div>
+
+        </div>
+    </div>
+    `;
+
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    const xhr = new XMLHttpRequest();
+    // Abrimos la conexion
+    xhr.open('GET', api + "product/" + t , false);
+    
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const prd = JSON.parse( this.responseText ) ;
+            nome = "MiKuai | " + " Pagar " + prd.data.producto[0].nombre;
+            document.getElementById('titleh').innerText = nome;
+            // Generar el HTML
+            let htmlPrd = ``;
+            
+            // Imprimir cada img
+            
+                    htmlPrd += `
+
+        <div style="padding: 5em 0 10em 0;" class="contn" id="pagrprd">
+            <div class="pgn w-s-pgn w-m-pgn">
+                
+                <div style="font-size: 3em; width: 90%;" class="atxt">Pagar</div>
+
+                <div class="row">
+
+                    <div class="col-m-7 row">
+                        
+                        <div style="font-size: 1.5em;" class="atxt col-m-12 col-s-12">Tus Datos</div>
+
+                        <div style="font-size: 1em; margin: 1.5em 0.5em 1em 2em;" class="ntxt">qwerty@example.com</div>
+
+                        <div style="font-size: 1em; margin: 1.5em 0.5em 3em 2em;" class="ntxt">Nombre</div>
+
+
+                        <div style="font-size: 1.5em;" class="atxt">Producto</div>
+
+
+                        <div class="atxt" style="font-size: 2em; margin-top: 1em; margin-left: 0.5em;">${prd.data.producto[0].nombre}</div>
+
+                        <div class="atxt" style="font-size: 1em; margin-left: 1.5em; font-style: oblique;">${prd.data.producto[0].categoria}</div>
+        
+                        <div style="margin-bottom: 1em;" class="contn contn-s">
+                            <img class="foto w-s-45 w-m-45 m-r" src="https://picsum.photos/500/300" alt="">
+        
+                            <!-- Info -->
+                            <div style="padding-left: 0.5em;" class="infp w-m-txt w-s-txt">
+        
+                                <div style="font-weight: bold; font-size: 1em; margin-top: 2em; margin-bottom: 1em;">$${prd.data.producto[0].precio}</div>
+        
+                                <div style="font-weight: bold; font-size: 0.8em;">Precio de envio $${prd.data.producto[0].envio}</div>
+        
+                                <div>
+                                    ${prd.data.producto[0].descripcion}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-m-5" id="totpag" >
+
+                        <div style="font-size: 1.5em;" class="atxt">Resumen de la compra</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em;" class="ntxt">Descripcion *********</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Producto ........... $${prd.data.producto[0].precio}</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Envio ................. $${prd.data.producto[0].envio}</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Descuento ........ $${prd.data.producto[0].precio * (prd.data.producto[0].descuento /100)}</div>
+
+                        <div style="margin: 1.5em 0.5em 1em 2em; font-weight: bold; font-size: 1.5em; " class="ntxt">Total a pagar .... $${prd.data.producto[0].precio + prd.data.producto[0].envio - (prd.data.producto[0].precio * (prd.data.producto[0].descuento /100))}</div>
+                        
+                    </div>
+                    
+                
+                </div>
+
+                
+
+            </div>
+        </div>  
+                    
+                    `;
+            
+
+            document.getElementById('pagrprd').innerHTML = htmlPrd;
+        }
+    }
+    
+    // Enviar el Request
+    xhr.send();
+}
+
+function atrasCPrdcts(e,t) {
+    e.preventDefault();
+    document.getElementById('btnatrs').innerHTML = ``;
+    document.getElementById('contnprd').innerHTML = ``;
+    document.getElementById('pagrprd').innerHTML = ``;
+    document.getElementById('titleh').innerText = "MiKuai";
+    LoadProducts();
+}
+
+//Funcion de busqueda
+function searchbt(e) {
+    e.preventDefault();
+    src = document.getElementById('schrtx').value;
+    window.location.href = client + 'index.php?src=' + src;
 }

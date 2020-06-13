@@ -8,6 +8,11 @@ body {
 }
 
 @media (min-width: 0px){
+
+    .errmsg-s {
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+    }
     .col-s-1{width: 8.33%;}
     .col-s-2{width: 16.66%;}    
     .col-s-3{width: 25%;}
@@ -61,6 +66,11 @@ body {
         width:100%;
         box-shadow:0px 4px 3px rgba(0,0,0,.5);
         opacity: 0.95;
+    }
+
+    .errmsg-m {
+        margin-top: 5.5em;
+        margin-bottom: 5.5em;
     }
 
 
@@ -170,7 +180,7 @@ body {
 
 .mnbtn img {
     max-width: 100%;
-    height: 3.15em;
+    height: 3.30em;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -249,7 +259,7 @@ body {
     
     /* box-shadow:0px 4px 3px rgba(0,0,0,.5); */
         
-
+    font-size: 1.2em;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-decoration: none;
@@ -258,9 +268,9 @@ body {
 .xm {
     background-color: #2e3034;
     border: solid 1px #2e3034;
-    margin-top: 0.7em;
+    margin-top: 0.5em;
     text-align: center;
-    font-size: 2em;
+    font-size: 1em;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
 }
@@ -332,6 +342,15 @@ body {
 
 
 
+/*error message*/
+
+.errmsg {
+    color: #b3f6a4;
+    font-weight: bold;
+    text-align: center;
+    font-size: 4em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 
 
@@ -340,8 +359,36 @@ body {
 
 
 
+/*Paginacion*/
+.pgn {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-bottom: 2em;
+}
 
+.pgna {
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #333c5b;
+    color: white;
+    font-size: 0.8em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
 
+.asel {
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #b3f6a4;
+    color: white;
+    font-size: 0.8em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
 
 
 
@@ -445,3 +492,33 @@ body {
     position: relative;
 }
 
+
+
+
+/*Boton atas*/
+.btnatras {
+    border-radius: 0.5em;
+    padding-top: 0.3em;
+    width: 50%;
+    height: 3em;
+    position: relative;
+    text-align: center;
+    display: block;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: large;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #b3f6a4; 
+    color: black;
+}
+
+.btnatras:hover {
+    background-color: #111213;
+    border: solid #b3f6a4 1px;
+    color: #b3f6a4;
+}
+
+.btnatras:active {
+    background-color: #b3f6a4;
+    color: #b3f6a4;
+}

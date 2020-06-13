@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="temp.css">
     <link rel="stylesheet" href="About.css">
     <link rel="icon" href="/img/logor.png" />
+    <link rel="stylesheet" href="index.css">
     <title>MiKuai | Información</title>
 </head>
 
@@ -21,9 +22,9 @@
         <div class="col-m-10 col-s-12">
             <div class="row">
             
-                <div class="col-m-10 col-s-8 srchinp" > <input placeholder="Search" type="text"> </div>
+                <div class="col-m-10 col-s-8 srchinp" > <input id="schrtx" placeholder="Search" type="text"> </div>
                 
-                <div class="col-m-2 col-s-4 srchibtn"> <a href="" class=" srchibtna btn"> Search </a> </div>
+                <div class="col-m-2 col-s-4 srchibtn"> <a onclick="searchbt(event)" href="" class=" srchibtna btn"> Search </a> </div>
             
             </div>
         </div>
@@ -43,29 +44,58 @@
                     <a class="btn mnbtn" href="Categorias.html">Categorias</a>
                 </div>
 
-                <div style="height: 3.15em; background-color: #2e3034;" style="display: flex;" class="col-m-3">
+                <div style="height: 3.30em; background-color: #2e3034;" style="display: flex;" class="col-m-5">
                    
                 </div>
 
-                <div style="display: flex;" class="col-m-2 col-s-6">
-                    <a class="btn mnbtn" href="LogIn.html">Iniciar Sesion</a>
-                </div>
-
-                <div style="display: flex;" class="col-m-1 col-s-5">
-                    <a class="btn mnbtn" href="SignIn.html">Registrarse</a>
-                </div>
-
-                <div style="display: flex;" class="col-m-1 col-s-5">
+                <div style="display: flex;" class="col-m-1 col-s-6">
                     <a class="btn mnbtn" href="About.html">Informacion</a>
                 </div>
 
-                <div style="display: flex;" class="col-m-1 col-s-2">
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="LogIn.html" style="width: 100%; padding: 0;">  <img src="img/Mono.png" alt=""> </a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
                     <a onclick="ShopCar(event,this)" style="width: 100%; padding: 0;" class="btn mnbtn" href=""> <img src="img/Carrito.png" alt=""> </a>
                 </div>
                 
             </div>
 
         </div>
+
+    </div>
+
+    <!-- Articulos -->
+    <div class="row pdconten pdconten-m" id="arts" >
+        
+        <!-- <div style="padding: 1em;" class="w-s-100 w-m-33">
+            
+            <div class="bxprdct">
+
+                <div class = "product" > <a href=" " onclick="Producto(event)" > <img src="https://picsum.photos/id/1/400/300" alt=""> </a> </div>
+
+                <div class="pdimfo">
+                    <div style="font-size: 2em;">
+                        $000,00
+                    </div>
+                    <div style="height: 1em;">
+                        Informacion de Articulo
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-m-5 col-s-5 btnbox" >
+                        <a class="btn btncomprar" href="">Comprar</a>
+                    </div>
+                    <div class="col-m-7 col-s-7 btnbox" >
+                        <a onclick="addCar(event,this)" class="btn btncarrito" href="">Agregar al carrito</a>
+                    </div>
+    
+                </div>
+            </div>
+
+        </div> -->
 
     </div>
 
@@ -127,6 +157,10 @@
 
         </div>
 
+    </div>
+
+    <!-- paginacion -->
+    <div class="pgn" id="ipgn">
     </div>
 
     <!-- Pie de pagina -->
