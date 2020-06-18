@@ -1,0 +1,96 @@
+@media (min-width: 0px){
+    .w-s-pgn{
+        width: 90%;
+        background-color: #333c5b;
+        border-radius: 0.5em;
+        box-shadow: 0px 0px 11px 4px rgba(0,0,0,1);
+    }
+    .w-s-45{width: 90%;}
+}
+
+@media (min-width: 768px){
+    .w-m-pgn{
+        width: 80%;
+        background-color: #333c5b;
+        border-radius: 0.5em;
+        box-shadow: 0px 0px 11px 4px rgba(0,0,0,1);
+    }
+    .w-m-45{width: 45%;}
+}
+
+.contn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+.atxt {
+    font-weight: bold;
+    color: #a7ff83;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 1em 0.5em 1em 0.5em;
+}
+
+.ntxt {
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+.foto {
+    margin-top: 2em;
+    max-width: 100%;
+    display: block;
+}
+
+
+/*Pagar total*/
+.boxp {
+    width: 90%;
+    margin: 0.5em 0.5em 0.5em 2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    /* box-shadow:0px 4px 3px rgba(0,0,0,.5); */
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+}
+
+.Prie {
+    text-align: center;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 2em;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+.scrllp {
+    height: 30em;
+    margin-bottom: 5em;
+    overflow-y: scroll;
+}
+
+.scrllp::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #333c5b;
+}
+
+.scrllp::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #2e3034;
+}
+
+.scrllp::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #a7ff83;
+}

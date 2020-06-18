@@ -13,9 +13,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
 #Productos
+RewriteRule ^producto$ Controllers/productoController.php [L]
+
 RewriteRule ^producto/cont/([0-9]+)$ Controllers/productoController.php?cont=$1 [L]
 RewriteRule ^producto/([0-9]+)$ Controllers/productoController.php?producto_id=$1 [L]
-RewriteRule ^product/([0-9]+)$ Controllers/productoController.php?product=$1 [L]
+RewriteRule ^product/(.*)$ Controllers/productoController.php?product=$1 [L]
 RewriteRule ^producto/search/(.*)/([0-9]+)$ Controllers/productoController.php?src=$1&conta=$2 [L]
 
 RewriteRule ^producto/categoria/(.*)/([0-9]+)$ Controllers/productoController.php?categoria=$1&catcont=$2 [L]
@@ -29,10 +31,14 @@ RewriteRule ^usuario$ Controllers/usuarioController.php [L]
 #Categias
 RewriteRule ^categorias$ Controllers/categoriasController.php [L]
 
-#Tareas
-RewriteRule ^tareas$ Controllers/tareasController.php [L]
-RewriteRule ^tareas/categoria_id=([0-9]+)$ Controllers/tareasController.php?categoria_id=$1 [L]
-RewriteRule ^tareas/([0-9]+)$ Controllers/tareasController.php?id_tarea=$1 [L]
+#Compras
+RewriteRule ^compraprd/([0-9]+)$ Controllers/compras_productosController.php?compraprd=$1 [L]
+RewriteRule ^compr$ Controllers/comprasController.php [L]
+RewriteRule ^compras/([0-9]+)$ Controllers/comprasController.php?compra=$1 [L]
+
+#Compras_productos
+RewriteRule ^comprd$ Controllers/compras_productosController.php [L]
+
 
 #Sesiones
 RewriteRule ^sesion$ Controllers/sesionController.php [L]

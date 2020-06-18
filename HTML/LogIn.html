@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/temp.css">
+    <link rel="stylesheet" href="/CSS/LogIn.css">
+    <link rel="icon" href="/img/logor.png" />
+    <title>MiKuai | Iniciar Sesión</title>
+</head>
+<body onload="lod()">
+    <script src="/JavaScript/temp.js"></script>
+    <script src="/JavaScript/LogIn.js"></script>
+
+    <!-- Title and search, menu -->
+    <div class="row bar trans">
+        
+        <div class="col-m-2 col-s-12 logo"> <a href="index.html"> <img src="/img/Logo.png" alt=""> </a> </div>
+
+        <div class="col-m-10 col-s-12">
+            <div class="row">
+            
+                <div class="col-m-10 col-s-8 srchinp" > <input id="schrtx" placeholder="Search" type="text"> </div>
+                
+                <div class="col-m-2 col-s-4 srchibtn"> <a onclick="searchbt(event)" href="" class=" srchibtna btn"> Search </a> </div>
+            
+            </div>
+        </div>
+
+        <!-- Manu -->
+        <div class="col-m-12">
+            <div class="row">
+                <div style="display: flex;" class="col-m-2 col-s-7">
+                    <a class="btn mnbtn" href="Descuentos.html">Descuentos y Rebajas</a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-5">
+                    <a class="btn mnbtn" href="Novedades.html">Novedades</a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="Categorias.html">Categorias</a>
+                </div>
+
+                <div style="height: 3.30em; background-color: #2e3034;" style="display: flex;" class="col-m-5">
+                   
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="About.html">Informacion</a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="LogIn.html" style="width: 100%; padding: 0;">  <img src="/img/Mono.png" alt=""> </a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a onclick="ShopCar(event,this)" style="width: 100%; padding: 0;" class="btn mnbtn" href=""> <img src="/img/Carrito.png" alt=""> </a>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Carrito -->
+    <div id="Cshop">
+    </div>
+
+    <!-- Iniciar Sesíon -->
+    <div class="cont">
+
+        <div class="log">
+            <div class="title"> Ingresa tu Email y contraseña</div>
+            
+            <!--Mensajes-->
+            <div id="mserr"></div>
+            <div id="msgtr"></div>
+
+            <div class="usr"> <input class="usrtxt" placeholder="Email" type="text" id="email"> </div>
+
+            <div class="usr" id="pswrd">  </div>
+            <!-- <input class="usrtxt" placeholder="Contraseña" type="password"> -->
+            
+            <div class="usr btnemail" id="inss"> <button onclick="Log(event,this)" class="btn" href="">Continuar</button> </div>
+            
+
+
+            <div class="usr" id="cc"> <button onclick="window.location.href='/SignIn.html'" id="ccbtn" class="btn btncracta" href="SignIn.html" >Crear Cuenta</button> </div>
+            
+            
+        </div>
+
+
+    </div>
+
+    
+    <!-- Pie de pagina -->
+    <div class="row pie">
+
+        <div class="col-m-6 col-s-12 pied">
+            Compra en linea, felicidad en casa
+        </div>
+
+        <div style="display: flex;" class="col-m-2 col-s-12">
+            
+            <a onclick="volvArriba(event)" class="vlvarriba" href="">
+                Volver arriba
+            </a>
+
+        </div>
+
+        <div class="col-m-2 col-s-12 pied">
+            Contactanos
+        </div>
+
+        <div class="col-m-2 col-s-12">
+
+            <div class="row">
+
+                <div class="col-m-4 col-s-4 bxscl redes">
+                    <a style="width: 25%;" href="https://www.facebook.com" target="_blank"> <img class="scl" src="/Redes/Facebook.png" alt=""> </a>
+                </div>
+
+                <div class="col-m-4 col-s-4 bxscl redes">
+                    <a style="width: 25%;" href="https://www.instagram.com " target="_blank"> <img class="scl" src="/Redes/Instagram.png" alt=""> </a>
+                </div>
+
+                <div class="col-m-4 col-s-4 bxscl redes">
+                    <a style="width: 25%;" href="https://www.twitter.com" target="_blank"> <img class="scl" src="/Redes/Twitter.png" alt=""> </a>
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </div>
+
+</body>
+</html>

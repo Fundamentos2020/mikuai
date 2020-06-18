@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/temp.css">
+    <link rel="stylesheet" href="/CSS/EdtPrdct.css">
+    <link rel="icon" href="/img/logor.png" />
+    <title id="titleh">MiKuai | Editar producto</title>
+</head>
+<body>
+    <script src="/JavaScript/temp.js"></script>
+    <script src="/JavaScript/EdtPrdct.js"></script>
+
+    <!-- Title and search, menu -->
+    <div class="row bar trans">
+        
+        <div class="col-m-2 col-s-12 logo"> <a href="index.html"> <img src="/img/Logo.png" alt=""> </a> </div>
+
+        <div class="col-m-10 col-s-12">
+            <div class="row">
+            
+                <div class="col-m-10 col-s-8 srchinp" > <input id="schrtx" placeholder="Search" type="text"> </div>
+                
+                <div class="col-m-2 col-s-4 srchibtn"> <a onclick="searchbt(event)" href="" class=" srchibtna btn"> Search </a> </div>
+            
+            </div>
+        </div>
+
+        <!-- Manu -->
+        <div class="col-m-12">
+            <div class="row">
+                <div style="display: flex;" class="col-m-2 col-s-7">
+                    <a class="btn mnbtn" href="Descuentos.html">Descuentos y Rebajas</a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-5">
+                    <a class="btn mnbtn" href="Novedades.html">Novedades</a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="Categorias.html">Categorias</a>
+                </div>
+
+                <div style="height: 3.30em; background-color: #2e3034;" style="display: flex;" class="col-m-5">
+                   
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="About.html">Informacion</a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a class="btn mnbtn" href="LogIn.html" style="width: 100%; padding: 0;">  <img src="/img/Mono.png" alt=""> </a>
+                </div>
+
+                <div style="display: flex;" class="col-m-1 col-s-6">
+                    <a onclick="ShopCar(event,this)" style="width: 100%; padding: 0;" class="btn mnbtn" href=""> <img src="/img/Carrito.png" alt=""> </a>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Carrito -->
+    <div id="Cshop">
+    </div>
+
+    <!-- Edicion -->
+    <div class="cont">
+
+        <div class="log">
+            <div class="title"> Eligue y Cambia los datos del producto</div>
+
+            <div class="usr usr-s">
+            
+                <div class="srchinped row"> 
+                    <input class="col-m-9 col-s-9" id="schrtxPrd" placeholder="Id del producto" type="text"> 
+                    
+                    <a class="col-m-3 col-s-3 srchibtned btn" onclick="searchBtPrdId(event)" href="" >Search</a>
+                </div>
+            
+            </div>
+
+            <div id="mserrT"></div>
+
+            <!--Nombre y precio-->
+            <div class="usr usr-s"> 
+                <div class="m-r w-m-40 w-s-90">
+                    <div class="usrtxtT">Nombre:</div> 
+                    <input onchange="chngNombre()" class="usrtxt " placeholder="Nombre" type="text" id="nom">
+                </div>
+
+                <div class="w-m-40 w-s-90">
+                    <div class="usrtxtT">Precio:</div>
+                    <input onchange="chngPrecio()" class="usrtxt" placeholder="Precio" type="text" id="precio"> 
+                </div>
+            </div>              
+
+            <!--Envio y descuento-->
+            <div class="usr usr-s"> 
+                <div class="m-r w-m-40 w-s-90">
+                    <div class="usrtxtT m-r">Costo de envio:</div>
+                    <input onchange="chngEnvio()" class="usrtxt" placeholder="Costo de Envio" type="text" id="envio">
+                </div>
+
+                <div class="w-m-40 w-s-90">
+                    <div class="usrtxtT">Descuento:</div>
+                    <input onchange="chngDescuento()" class="usrtxt" value="0" placeholder="Descuento" type="text" id="descuento">
+                </div>
+            </div>
+
+            <!--Imagen y descripcion-->
+            <div class="usr usr-s">
+                <div class="usr usr-s"> 
+                    <div class="m-r w-m-40 w-s-90">
+                        <div class="usrtxtT m-r">Imagen:</div>
+                        <div class=" usrtxt">
+                            <input name="imgPrd" onchange="chngImg()" class="col-m-12 col-s-12" style=" width: 100%; " onchange="changeImg()" type="file" id="seleccionArchivos" accept="image/*">
+                                    
+                            <img id="primg" style=" width: 100%; " class="foto col-m-12" src="" >
+                        </div>
+                    </div>
+    
+                    <div class="w-m-40 w-s-90">
+                        <div class="usrtxtT" style=" width: 100%; ">Descripcion:</div>
+                        <textarea onchange="chngDescripcion()" id="descripcion" style=" width: 100%; " rows="10" cols="40" class="usrtxt"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!--Clasificacion-->
+            <div class="usr usr-s" id="usr">
+                <div class="w-m-40 w-s-90">
+                    <div class="usrtxtT" style=" width: 100%; ">Categoria:</div>
+
+                    <select onchange="chngCategoria()" id="categoria" class="usrtxt" style=" width: 100%; ">
+                        <option value="" selected disabled hidden>--</option>
+                        <option value="Automoviles">Automoviles</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Hogar">Hogar</option>
+                        <option value="Electrodomesticos">Electrodomesticos</option>
+                        <option value="Joyas">Joyas</option>
+                        <option value="Herramientas">Herramientas</option>
+                        <option value="Videojuegos">Videojuegos</option>
+                        <option value="Libros">Libros</option>
+                        <option value="Software">Software</option>
+                        <option value="Ropa">Ropa</option>
+                        <option value="Juguetes">Juguetes</option>
+                        <option value="Inmuebles">Inmuebles</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div id="mserr"></div>
+            
+            <div id="msgtr"></div>
+            <!--Boton de editar-->
+            <div id="btnedt">
+                
+            </div>
+
+
+            
+
+        </div>
+
+
+    </div>
+
+    
+    <!-- Pie de pagina -->
+    <div class="row pie">
+
+        <div class="col-m-6 col-s-12 pied">
+            Compra en linea, felicidad en casa
+        </div>
+
+        <div style="display: flex;" class="col-m-2 col-s-12">
+            
+            <a onclick="volvArriba(event)" class="vlvarriba" href="">
+                Volver arriba
+            </a>
+
+        </div>
+
+        <div class="col-m-2 col-s-12 pied">
+            Contactanos
+        </div>
+
+        <div class="col-m-2 col-s-12">
+
+            <div class="row">
+
+                <div class="col-m-4 col-s-4 bxscl redes">
+                    <a style="width: 25%;" href="https://www.facebook.com" target="_blank"> <img class="scl" src="/Redes/Facebook.png" alt=""> </a>
+                </div>
+
+                <div class="col-m-4 col-s-4 bxscl redes">
+                    <a style="width: 25%;" href="https://www.instagram.com " target="_blank"> <img class="scl" src="/Redes/Instagram.png" alt=""> </a>
+                </div>
+
+                <div class="col-m-4 col-s-4 bxscl redes">
+                    <a style="width: 25%;" href="https://www.twitter.com" target="_blank"> <img class="scl" src="/Redes/Twitter.png" alt=""> </a>
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </div>
+
+</body>
+</html>
